@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "nodemon": "nodemon app.js"
+    "test": "jest",
+    "nodemon": "nodemon app.js",
+    "lint": "eslint *.{js,jsx} **/*.{js,jsx}"  
   },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DocOch/applican-.git"
@@ -30,7 +35,9 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.1.0",
-    "nodemon": "^1.11.0"
+    "jest": "^20.0.4",
+    "nodemon": "^1.11.0",
+    "pre-commit": "^1.2.2"
   },
   "config": {
     "commitizen": {
