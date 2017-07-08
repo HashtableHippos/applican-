@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Signup extends Component {
   constructor() {
@@ -62,6 +63,7 @@ class Signup extends Component {
           <input type="password" onChange={e => this.confirmPassword(e)} name="confirmPassword" />
           <button>Sign up</button>
         </form>
+        <Link to="Login">Login!</Link>
       </div>
     );
   }

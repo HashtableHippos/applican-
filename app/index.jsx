@@ -6,6 +6,7 @@ import Landing from './components/landing';
 import Search from './components/search';
 import Signup from './components/signup';
 import store from './store/store';
+import Login from './components/login';
 
 const Index = () => (
   <Provider store={store}>
@@ -14,6 +15,7 @@ const Index = () => (
         <Route exact path="/search" component={Search} />
         <Route exact path="/" component={Landing} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
       </switch>
     </Router>
   </Provider >
