@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setSearchTerm, updateJobListings } from '../actions/actions';
 
-
 class Landing extends React.Component {
   constructor(props) {
     super(props);
@@ -23,6 +22,7 @@ class Landing extends React.Component {
       .then((res) => {
         res.json()
           .then((data) => {
+            console.log(data);
             this.props.addAPIJobData(data);
             this.props.history.push('/search');
           });
@@ -33,10 +33,12 @@ class Landing extends React.Component {
     return (
       <div className="mui-container mui--text-center">
         <h1>{this.props.searchTerm}</h1>
-        <h2>The can-do job searcher that's right for you!</h2>
+        <h2>The can-do job searcher that's right for you!!</h2>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.props.searchTerm} 
-            onChange={this.props.handleSearchTermChange} 
+          <input
+            type="text"
+            value={this.props.searchTerm}
+            onChange={this.props.handleSearchTermChange}
           />
           <input type="submit" value="Submit" />
         </form>

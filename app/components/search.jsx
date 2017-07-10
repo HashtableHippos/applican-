@@ -1,18 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import JobListEntry from './jobListEntry.jsx';
+import JobDetails from './jobDetailsComponent';
+import JobList from './jobList';
 
-const Search = props => {
-  return (
-    <div>
-      <h3>Search Results </h3>
-      {props.jobAPIData.data.map((el, idx) => {
-        return (<JobListEntry name={el.company} location={el.location}/>);
-      })}
+const Search = () => (
+  <div>
+    <div className="mui-row">
+      <div className="mui-col-md-6 mui-col-md-offset-1">
+        <JobList />
+      </div>
+      <div className="mui-col-md-3">
+        <JobDetails />
+      </div>
     </div>
-  );
-};
+  </div>
+);
 
-const mapStateToProps = state => ({ jobAPIData: state.jobAPIData });
-
-export default connect(mapStateToProps)(Search);
+export default Search;
