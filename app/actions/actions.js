@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SEE_JOB_DETAILS, SET_JOB_DESC, SET_USER_AUTH, SET_USER_JOBS } from './actionTypes';
+import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SEE_JOB_DETAILS, SET_JOB_DESC, SET_USER_AUTH, SET_USER_JOBS, ADD_CONTACT } from './actionTypes';
 
 export function setSearchTerm(searchTerm) {
   return { type: SET_SEARCH_TERM, payload: searchTerm };
@@ -67,4 +67,8 @@ export function fetchUserJobs() {
       })
       .catch(err => console.log(err));
   };
+}
+
+export function addContact(name, position, Email, FollowUp) {
+  return { type: ADD_CONTACT, payload: { name, position, Email, FollowUp } };
 }
