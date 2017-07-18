@@ -36,7 +36,6 @@ export function fetchUserJobs() {
   return (dispatch) => {
     axios.get('api/user/')
       .then((res) => {
-        console.log(res.data);
         return dispatch(setUserJobs(res.data));
       })
       .catch(err => console.log(err));
