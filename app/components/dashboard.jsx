@@ -100,9 +100,7 @@ class Dashboard extends Component {
 
                     <form onSubmit={(e) => {
                       e.preventDefault();
-                      console.log('props is', this.props)
-                      console.log('state is', this.state)
-                      this.props.addContact(this.state.name, this.state.position, this.state.Email, this.state.FollowUp);
+                      this.props.addContact(this.state.name, this.state.position, this.state.Email, this.state.FollowUp, job.id);
                     }}
                     >
                       <input type="text" name="name" value={this.state.name} onChange={this.handleNameChange} />
@@ -151,8 +149,8 @@ const mapDispatchToProps = dispatch => ({
   fetchJobs() {
     dispatch(fetchUserJobs());
   },
-  addContact(name, position, Email, FollowUp) {
-    dispatch(addContactApi(name, position, Email, FollowUp));
+  addContact(name, position, Email, FollowUp, id) {
+    dispatch(addContactApi(name, position, Email, FollowUp, id));
   },
 
 });

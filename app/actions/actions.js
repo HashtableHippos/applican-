@@ -68,15 +68,15 @@ export function fetchUserJobs() {
   };
 }
 
-export function addContact(name, position, Email, FollowUp) {
-  return { type: ADD_CONTACT, payload: { name, position, Email, FollowUp } };
+export function addContact(name, position, Email, FollowUp, id) {
+  return { type: ADD_CONTACT, payload: { name, position, Email, FollowUp, id } };
 }
 
-export function addContactApi(name, position, Email, FollowUp) {
+export function addContactApi(name, position, Email, FollowUp, id) {
   return (dispatch) => {
-    axios.post('api/contacts', { name, position, Email, FollowUp } )
+    axios.post('api/contacts', { name, position, Email, FollowUp, id } )
       .then((res) => {
-        return dispatch(addContact(name, position, Email, FollowUp ));
+        return dispatch(addContact(name, position, Email, FollowUp, id ));
       })
       .catch(err => console.error(err));
   };

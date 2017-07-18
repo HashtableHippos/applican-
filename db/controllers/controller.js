@@ -111,7 +111,8 @@ exports.addContact = (req, res) => {
   const position = req.body.position || null;
   const Email = req.body.Email || null;
   const FollowUp = req.body.FollowUp || null;
-  Contacts.create({ name, position, Email, FollowUp })
+  const job_id = req.body.id || null;
+  Contacts.create({ name, position, Email, FollowUp, job_id })
     .then((contact) => {
       console.log('created contact:', contact);
     })
