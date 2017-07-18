@@ -48,7 +48,6 @@ const userJobs = (state = mockUserJobsData, action) => {
     return state.filter(job => job.id !== action.payload.id);
   }
   if (action.type === SET_USER_JOBS) {
-    console.log(action.payload);
     return action.payload;
   }
   return state;
@@ -68,6 +67,13 @@ const jobDesc = (state = {}, action) => {
   return state;
 };
 
-const rootReducer = combineReducers({ user, searchTerm, jobAPIData, jobDetailsDisplay, userJobs, jobDesc });
+const addContact = (state = {}, action) => {
+  if (action.type === ADD_CONTACT) {
+    return Object.assign({}, state, { data: action.payload });
+  }
+  return state;
+};
+
+const rootReducer = combineReducers({ user, searchTerm, jobAPIData, jobDetailsDisplay, userJobs, jobDesc, addContact });
 
 export default rootReducer;
