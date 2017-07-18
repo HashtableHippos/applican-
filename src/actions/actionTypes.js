@@ -7,3 +7,4 @@ export const SEE_JOB_DETAILS = 'SEE_JOB_DETAILS';
 export const SET_JOB_DESC = 'SET_JOB_DESC';
 export const SET_USER_AUTH = 'SET_USER_AUTH';
 export const SET_USER_JOBS = 'SET_USER_JOBS';
+export const SET_SORT_FILTER = 'SET_SORT_FILTER';

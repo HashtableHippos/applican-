@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SET_USER_JOBS } from './actionTypes';
+import { UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SET_USER_JOBS, SET_SORT_FILTER } from './actionTypes';
 
 export function updateJobListings(jobListings) {
   return { type: UPDATE_JOB_LISTINGS, payload: jobListings };
@@ -41,4 +41,8 @@ export function fetchUserJobs() {
       })
       .catch(err => console.log(err));
   };
+}
+
+export function setSortFilter(filter) {
+  return { type: SET_SORT_FILTER, payload: filter };
 }
