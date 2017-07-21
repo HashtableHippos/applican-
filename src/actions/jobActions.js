@@ -1,4 +1,4 @@
-import { SET_SEARCH_TERM, SEE_JOB_DETAILS, SET_JOB_DESC, ADD_CONTACT } from './actionTypes';
+import { SET_SEARCH_TERM, SEE_JOB_DETAILS, SET_JOB_DESC, ADD_CONTACT, SET_USER_NOTES } from './actionTypes';
 
 export function setSearchTerm(searchTerm) {
   return { type: SET_SEARCH_TERM, payload: searchTerm };
@@ -25,3 +25,8 @@ export function addContactApi(name, position, Email, FollowUp, id) {
       .catch(err => console.error(err));
   };
 }
+
+export function setUserNotes(notes) {
+  return { type: SET_USER_NOTES, payload: notes };
+}
+

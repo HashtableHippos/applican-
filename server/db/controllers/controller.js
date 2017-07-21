@@ -2,6 +2,7 @@
 const User = require('../models/savedJobs.js');
 const savedJobs = require('../models/savedJobs.js');
 const Contacts = require('../models/contacts.js');
+const Notes = require('../models/notes.js');
 
 exports.getUserJobs = (req, res) => {
   const userId = req.user.id;
@@ -87,7 +88,7 @@ exports.addContact = (req, res) => {
 exports.removeContact = (req, res) => {
   const contactId = req.params.id;
   Contacts.findById(contactId)
-    .then(contact => {
+    .then((contact) => {
       if (contact) {
         return contact.destroy();
       }
@@ -112,5 +113,68 @@ exports.getContacts = (req, res) => {
         .catch((err) => {
           res.status(400).send(err);
         });
+  Contacts.findAll()
+    .then((contacts) => {
+      res.status(200).send(contacts);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
     });
 };
+
+
+exports.addNotes = (req, res) => {
+  const Start = req.body.Start;
+  const Application = req.body.Application;
+  const Submit = req.body.Submit;
+  const Interview = req.body.Interview;
+  const Offer = req.body.Offer;
+  const user_id = req.session.passport.user;
+  const job_id = req.body.job_id;
+
+  let Column = '';
+  let Value = '';
+  const List = {
+    Start: req.body.Start,
+    Application: req.body.Application,
+    Submit: req.body.Submit,
+    Interview: req.body.Interview,
+    Offer: req.body.Offer,
+  };
+  for (var key in List) {
+    if (List[key] !== undefined) {
+      Column = key;
+      Value = List[key];
+    }
+  }
+  Notes.findAll({ where: { user_id, job_id } })
+    .then((data) => {
+      if (data.length !== 0) {
+        Notes.update({ [Column]: Value }, { where: { user_id, job_id } });
+      } else {
+        Notes.create({ Start, Application, Submit, Interview, Offer, user_id, job_id })
+          .then((notes) => {
+            console.log('created notes: ', notes.dataValues);
+          })
+          .then(() => {
+            res.status(200).send();
+          })
+          .catch((err) => {
+            res.status(400).send(err);
+          });
+      }
+    });
+};
+
+
+exports.retrieveNotes = (req, res) => {
+  Notes.findAll()
+    .then((notes) => {
+      console.log('these are notes from retrieveNotes: ', notes); 
+      res.status(200).send(notes);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
+

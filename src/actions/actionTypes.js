@@ -9,3 +9,4 @@ export const SET_USER_AUTH = 'SET_USER_AUTH';
 export const SET_USER_JOBS = 'SET_USER_JOBS';
 export const SET_SORT_FILTER = 'SET_SORT_FILTER';
 export const ADD_CONTACT = 'ADD_CONTACT';
+export const SET_USER_NOTES = 'SET_USER_NOTES';
