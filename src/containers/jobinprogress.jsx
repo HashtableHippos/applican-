@@ -5,6 +5,7 @@ import { updateJobStatusAPI, deleteJobAPI, fetchUserNotes } from '../actions/act
 import JobStepper from '../components/shared/jobStepper/jobStepper';
 import Contacts from '../components/jobInProgress/contacts';
 import Notes from '../components/jobInProgress/notes';
+import ContactInfo from '../components/jobInProgress/ContactInfo';
 
 const JobInProgress = props => (
   <container>
@@ -27,6 +28,7 @@ const JobInProgress = props => (
     <div>
       <h3>Contacts</h3>
       <Contacts />
+      <ContactInfo id={props.job.id} />
     </div>
   </container>
 );

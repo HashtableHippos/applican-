@@ -31,7 +31,7 @@ router.get('/user', isLoggedIn, controllers.getUserJobs);
 router.put('/jobs/:id', isLoggedIn, controllers.updateJobStatus);
 router.delete('/jobs/:id', isLoggedIn, controllers.deleteJob);
 router.post('/contacts', controllers.addContact);
-router.get('/contacts', controllers.getContacts);
+router.get('/contacts/:id', controllers.getContacts);
 router.delete('/contacts/:id', controllers.removeContact);
 router.post('/notes/', controllers.addNotes);
 router.get('/findnotes/', controllers.retrieveNotes);

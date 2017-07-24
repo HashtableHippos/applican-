@@ -8,10 +8,9 @@ export default class ContactInfo extends React.Component {
     this.state = { contactList: [] };
   }
   componentDidMount() {
-    axios.get('/api/contacts')
+    axios.get(`/api/contacts/${this.props.id}`)
       .then((contactList) => {
         this.setState({ contactList });
-        console.log(this.state.contactList.data) // array
       });
   }
 
