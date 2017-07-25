@@ -1,6 +1,19 @@
-.landing {
-  background-color: lightblue;
-  background-size: cover;
 
-	
+
+.landing {
+  height: 800px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(http://mt-global.com/wp-content/uploads/2015/12/calidad-mtglobal.jpg); 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.branding {
+	color: white; 
+	font-weight: 30;
+    font-size: 20px;
+    line-height: 32px;
 }

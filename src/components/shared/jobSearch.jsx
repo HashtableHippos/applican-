@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { setSearchTerm, updateJobListings } from '../../actions/actions';
 
+
 class JobSearch extends Component {
   constructor(props) {
     super(props);
@@ -50,18 +51,18 @@ class JobSearch extends Component {
       <div className="mui-container mui--text-center">
         <h1>{this.state.jobType}</h1>
         <h2>{this.state.location}</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input
+        <form className="search" onSubmit={this.handleSubmit}>
+          <input className="input1"
             type="text"
             onChange={e => this.handleSearchTermChange(e)}
             placeholder="Job Type"
           />
-          <input
+          <input className="input2"
             type="text"
             onChange={e => this.handleSearchLocationChange(e)}
             placeholder="Zip Code"
           />
-          <input type="submit" value="Submit" />
+          <input className="submit" type="submit" value="Submit" />
         </form>
       </div>
     );

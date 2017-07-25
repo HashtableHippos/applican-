@@ -10,7 +10,7 @@ class Landing extends Component {
     return (
       <div className="landing">
       <div className="mui-container mui--text-center">
-         <h2>The can-do job searcher that's right for you!!</h2>
+         <h2 className="branding">The can-do job searcher that's right for you</h2>
         <JobSearch history={this.props.history} />
       </div>
       </div>
