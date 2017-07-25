@@ -36,7 +36,8 @@ export function fetchUserJobs() {
   return (dispatch) => {
     axios.get('/api/user/')
       .then((res) => {
-        return dispatch(setUserJobs(res.data));
+        const data = (Array.isArray(res.data)) ? res.data : [];
+        return dispatch(setUserJobs(data));
       })
       .catch(err => console.log(err));
   };

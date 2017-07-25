@@ -15,7 +15,6 @@ authRouter.get('/google/callback',
 );
 
 authRouter.get('/checkAuth', (req, res) => {
-  console.log('this is authenticated', req.isAuthenticated());
   res.status(200).json({
     status: req.isAuthenticated() });
 });
