@@ -1,0 +1,56 @@
+
+.title {
+  color: black;
+  margin-left: 1%;
+}
+
+.coverletter {
+  margin-left: 2%;
+}
+
+.uploadBar{
+  border: 0;
+  width: 400px;
+  height: 50px; 
+  border-radius: 5px;
+  margin:2px;
+  border: 1px solid #a1a1a1
+}
+
+.mui-container {
+	margin-left: 1%;
+}
+
+.tabs {
+  width: 112px;  
+  height: 40px;
+  background-color: #5096FF;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+	margin:2px;
+	border-radius: 3px;
+}
+
+.tabs:active {
+  background-color: #8A58B7;
+  box-shadow: inset 0 0 1.094em #8A58B7, inset 0 .063em #8A58B7, inset 0 -0.188em #8A58B7, 0 .063em rgba(255,255,255,.4);  
+}
+
+.tabs:hover {
+   background-color: #8A58B7;
+}
+
+.input {
+	height: 200px; 
+	width: 580px;
+	padding: 0 10px 150px 0;
+	font-size:24px;
+}
+
+
+

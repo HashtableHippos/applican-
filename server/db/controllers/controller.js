@@ -1,8 +1,6 @@
-const User = require('../models/User.js');
 const savedJobs = require('../models/savedJobs.js');
 const Contacts = require('../models/contacts.js');
 const Notes = require('../models/notes.js');
-const Join = require('../models/join');
 
 exports.getUserJobs = (req, res) => {
   const userId = req.user.id;

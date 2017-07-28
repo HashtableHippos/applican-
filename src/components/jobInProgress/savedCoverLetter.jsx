@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchUserJobs } from '../../actions/actions';
 import FileUploader from '../shared/fileUploader';
+import Button from 'muicss/lib/react/button';
+
 
 class SavedCoverLetter extends Component {
   constructor(props) {
@@ -23,8 +25,8 @@ class SavedCoverLetter extends Component {
     const endpointUrl = `/coverletter/${jobId}`;
     const render = (coverLetterKey && !showUploadForm) ?
       (<div>
-        <a href={endpointUrl} download>Cover Letter</a>
-        <button onClick={this.toggleUploadForm}>Update</button>
+        <a href={endpointUrl} download>Cover Letter</a><br /> 
+        <Button size="small" color="primary" onClick={this.toggleUploadForm}>Update</Button>
       </div>)
       : (<FileUploader endpointUrl={endpointUrl} onSubmit={this.handleUpload} />);
     return render;

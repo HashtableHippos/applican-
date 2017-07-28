@@ -1,10 +1,28 @@
 .navbar {
-    background: black;
-    height: 55px;
+  background: black;
+  height: 55px;
 }
 
 .logo {
-    top: 0px;
-    position: relative;
-    boarder: 0; 
+  top: 0px;
+  position: relative;
+  boarder: 0; 
 }
+
+#about {
+  position: absolute;
+  top: 18px;
+  right: 220px;
+  font-size: 16px; 
+  text-shadow: 0 0 3px #5096FF;
+}
+
+#dashboard {
+  font-size: 16px;
+}
+
+#logout {
+  right: 10px; 
+  font-size: 16px;
+}
+

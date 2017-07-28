@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header, Icon } from 'semantic-ui-react';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserNotes, addContactApi } from '../actions/actions';
@@ -8,35 +8,47 @@ import SavedCoverLetter from '../components/jobInProgress/savedCoverLetter';
 import ContactInfo from '../components/jobInProgress/ContactInfo';
 import AddContact from '../components/jobInProgress/AddContact';
 
-const JobInProgress = props => (
-  <container>
-    <div>
-      <Header as="h2" icon textAlign="center">
-        <i className="handshake icon" />
-        <Header.Content>
-          <h2>{props.job.position}</h2>
-          <h2><i>{props.job.company}</i></h2>
-        </Header.Content>
-      </Header>
-    </div>
-    <div>
-      <JobStepper job={props.job} handleProgressClick={props.toggleJobStatus} />
-    </div>
-    <SavedCoverLetter jobId={props.job.id} coverLetterKey={props.job.cover_letter_key} />
-    <div>
-      <Notes id={props.job.id} />
-    </div>
-    <div>
-      <h3>Contacts</h3>
-      <table>
-        <td width={50}>
-          <AddContact jobId={props.job.id}/>
-        </td>
-      </table>
-      <ContactInfo jobId={props.job.id} />
-    </div>
-  </container>
-);
+class JobInProgress extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+  render() {
+    return (
+      <container>
+        <div>
+          <Header as="h2" icon textAlign="center">
+            <i className="handshake icon" />
+            <Header.Content>
+              <h2>{this.props.job.position}</h2>
+              <h2><i>{this.props.job.company}</i></h2>
+            </Header.Content>
+          </Header>
+        </div>
+        <div>
+          <JobStepper job={this.props.job} handleProgressClick={this.props.toggleJobStatus} />
+        </div><br />
+        <h3 className="title">Upload Cover Letter</h3>
+        <div className="coverletter">
+          <SavedCoverLetter jobId={this.props.job.id} coverLetterKey={this.props.job.cover_letter_key} />
+        </div><br />
+        <div>
+          <h3 className="title">Notes</h3>
+          <Notes id={this.props.job.id} />
+        </div>
+        <div className="contactsArrange">
+          <h3 className="title">Contacts</h3>
+          <AddContact jobId={this.props.job.id} />
+          <ContactInfo jobId={this.props.job.id} />
+        </div>
+      </container>
+
+    );
+  }
+}
+
 
 const mapStateToProps = (state, ownProps) =>
   ({ job: state.userJobs.find(job => job.id === parseInt(ownProps.match.params.id, 10)),

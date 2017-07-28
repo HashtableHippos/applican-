@@ -1,9 +1,10 @@
 import { createSelector } from 'reselect';
 
+
 const getSortFilter = state => state.sortFilter;
 const getJobs = state => state.userJobs;
 
-const getSortedJobs = createSelector(
+export const getSortedJobs = createSelector(
   getSortFilter,
   getJobs,
   (sortFilter, userJobs) => {
@@ -16,5 +17,6 @@ const getSortedJobs = createSelector(
         return userJobs;
     }
   });
-export default getSortedJobs;
+
+export const getSavedJobs = (state, status) => state.userJobs.filter(job => job.status === status);
 

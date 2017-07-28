@@ -14,11 +14,9 @@ class JobListEntry extends Component {
 
     this.selectJobHandle = this.selectJobHandle.bind(this);
     this.saveJob = this.saveJob.bind(this);
-
   }
 
   selectJobHandle(e) {
-    e.preventDefault();
     this.props.selectJob(this.props.job);
     axios({
       method: 'POST',
@@ -31,11 +29,10 @@ class JobListEntry extends Component {
         this.props.setJobDesc(data.data);
       });
   }
-
   saveJob(e) {
     if (!this.props.user) {
-      this.props.history.push('/');
-      return;
+      alert('Please login to enable Save Job function.'); 
+      return; 
     }
     axios.post('/api/jobs', {
       data: {

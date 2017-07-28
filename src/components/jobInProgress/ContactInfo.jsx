@@ -14,33 +14,32 @@ export class ContactInfo extends React.Component {
 
   render() {
     return (
-      <div>
-        <table style={{ border: '1px solid' }} >
-          <thead style={{ border: '1px solid' }}>
-            <tr>
-              <th style={{ border: '1px solid' }}>Name</th>
-              <th style={{ border: '1px solid' }}>Position</th>
-              <th style={{ border: '1px solid' }}>Email</th>
-              <th style={{ border: '1px solid' }}>FollowUp Date</th>
-              <th style={{ border: '1px solid' }}>Remove</th>
+      <div className="contactList">
+        <a className="mui--text-title">Contacts List</a>
+        <table className="contactTable">
+          <thead className="contactHead" >
+            <tr >
+              <th>Name</th>
+              <th>Position</th>
+              <th>Email</th>
+              <th>FollowUp Date</th>
+              <th>Remove</th>
             </tr>
           </thead>
-          <tbody style={{ border: '1px solid' }}>
-            { Array.isArray(this.props.contacts) && this.props.contacts.map((el) => {
-              return (
-                <tr key={el.id} style={{ border: '1px solid' }}>
-                  <td style={{ border: '1px solid' }}>{el.name}</td>
-                  <td style={{ border: '1px solid' }}>{el.position}</td>
-                  <td style={{ border: '1px solid' }}>{el.Email}</td>
-                  <td style={{ border: '1px solid' }}>{el.FollowUp.toString()}</td>
-                  <td>
-                    <button onClick={() => this.props.removeContactApi(el.id)}>
-                      <MDDelete size={15} />
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
+          <tbody>
+            { Array.isArray(this.props.contacts) && this.props.contacts.map(el => (
+              <tr className="contactRow" key={el.id}>
+                <td className="contactRow">{el.name}</td>
+                <td className="contactRow">{el.position}</td>
+                <td className="contactRow">{el.Email}</td>
+                <td className="contactRow">{el.FollowUp.toString().slice(0,10)}</td>
+                <td>
+                  <button onClick={() => this.props.removeContactApi(el.id)}>
+                    <MDDelete size={15} />
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

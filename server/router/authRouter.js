@@ -11,7 +11,7 @@ authRouter.get('/google/callback',
     prompt: 'consent',
     failureRedirect: '/auth/google',
     successRedirect: '/',
-  }) // eslint-disable-line
+  })
 );
 
 authRouter.get('/checkAuth', (req, res) => {
@@ -28,10 +28,6 @@ authRouter.get('/logout', (req, res) => {
     res.redirect('/');
   });
 });
-
-// authRouter.get('/success', (req, res) => {
-//  res.status(202).send('login success')
-// }) // this runs super slow as a success redirect.
 
 
 module.exports = authRouter;

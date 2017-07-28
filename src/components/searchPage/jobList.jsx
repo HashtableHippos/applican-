@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import JobListEntry from './jobListEntry';
-import Button from 'muicss/lib/react/button';
 
 
 class JobList extends Component {
@@ -9,43 +8,32 @@ class JobList extends Component {
     super(props);
     this.state = {
       pageSelect: 0,
+      activePage: '',
+      color: '#8A58B7',
     };
-    this.fetchJobsPage.bind(this);
-    this.divide.bind(this);
+    this.handlePageNumberClick.bind(this);
   }
 
-  fetchJobsPage(e) {
+  handlePageNumberClick(e) {
     e.preventDefault();
-    this.setState({ pageSelect: e.target.value - 1 });
-  }
-
-  divide(arr, num) {
-	  const pages = Math.floor(arr.length / num) + 1;
-	  const result = [];
-	  let start = 0;
-	  while (start < arr.length) {
-	    result.push(arr.slice(start, start + num));
-	    start += num;
-	  }
-	  return result;
-  }
-
-  pagesArr(num) {
-    const result = [];
-    let count = 1;
-    while (count <= num) { result.push(count); count++; }
-    return result;
+    this.setState({ activePage: e.target.value}); 
+    this.setState({ pageSelect: (e.target.value * 10) - 10 });
   }
 
   render() {
+    console.log('active page: ', typeof(this.state.activePage)); 
+    const pages = Array.from(Array(Math.floor((this.props.jobAPIData.data.length) / 10)).keys(), val => val + 1);
     return (
       <div>
         <div>
-          {this.pagesArr(this.divide(this.props.jobAPIData.data, 10).length).map(num =>
-            (<Button size="small" color="primary" variant="raised" value={num} onClick={e => this.fetchJobsPage(e)}>Page {num}</Button>))}
+          {pages.map(num => (
+            <button className="page" value={num} key={Math.random()*num}
+              onClick={e => this.handlePageNumberClick(e)} style={(num) === Number(this.state.activePage)? { backgroundColor: this.state.color } : null}
+            >Page {num}
+            </button>))}
         </div><br />
-        {this.divide(this.props.jobAPIData.data, 10)[this.state.pageSelect].map((job, idx) => (<JobListEntry job={job} key={idx} history={this.props.history} />))}
-
+        {this.props.jobAPIData.data.slice(this.state.pageSelect, this.state.pageSelect + 10)
+          .map(job => (<JobListEntry job={job} key={job.detailUrl} history={this.props.history} />))}
       </div>
     );
   }

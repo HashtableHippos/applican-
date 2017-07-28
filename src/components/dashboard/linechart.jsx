@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryChart, VictoryAxis, VictoryLine } from 'Victory';
+import { VictoryChart, VictoryAxis, VictoryLine } from 'victory';
 
 
 const LineChart = (props) => {
@@ -15,19 +15,21 @@ const LineChart = (props) => {
     return acc;
   }, []);
   return (
-    <VictoryChart
-      scale={{ x: 'time' }}
-    >
-      <VictoryLine
-        style={{
-          data: { stroke: 'tomato' },
-        }}
+    <div>
+      <h3> I-Can-Do <sup>&reg;</sup> Progress Tracker </h3>
+      <VictoryChart
         scale={{ x: 'time' }}
-        data={data}
-      />
-      <VictoryAxis />
-
-    </VictoryChart>
+      >
+        <VictoryLine
+          style={{
+            data: { stroke: 'tomato' },
+          }}
+          interpolation="basis"
+          data={data}
+        />
+        <VictoryAxis />
+      </VictoryChart>
+    </div>
   );
 };
 export default LineChart;

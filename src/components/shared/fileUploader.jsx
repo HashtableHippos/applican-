@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Button from 'muicss/lib/react/button';
 
 class FileUploader extends Component {
   constructor(props) {
@@ -33,10 +34,10 @@ class FileUploader extends Component {
 
   render() {
     return (
-      <div>
+      <div className="uploadBar">
         <form onSubmit={this.handleResumeSubmit}>
           <input type="file" onChange={this.handleFileChange} />
-          <input type="submit" />
+          <Button color="primary" variant="raised">Submit</Button>
         </form>
       </div>
     );

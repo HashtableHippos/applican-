@@ -60,7 +60,7 @@ class JobSearch extends Component {
             onChange={e => this.handleSearchLocationChange(e)}
             placeholder="Zip Code"
           />
-          <input className="submit" type="submit" value="Submit" />
+          <input className="homeSubmit" type="submit" value="Submit" />
         </form>
       </div>
     );

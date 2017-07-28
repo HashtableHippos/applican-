@@ -25,7 +25,7 @@ s3Router.post('/:jobId', (req, res) => {
     .then(data => savedJobs.findById(jobId))
     .then((job) => {
       if (job) {
-        return job.update({ cover_letter_key: params.Key});
+        return job.update({ cover_letter_key: params.Key });
       }
       throw new Error('Job Not Found');
     })
@@ -40,7 +40,7 @@ s3Router.get('/:jobId', (req, res) => {
     Key: jobId,
   };
   s3.getSignedUrl('getObject', params, (err, url) => {
-    if(err) {
+    if (err) {
       console.log(err);
       res.status(500).send('resource retrieval failed');
     }

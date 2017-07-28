@@ -1,11 +1,18 @@
+.mui-container-fluid {
+  margin-top: 20px;
+
+}
+
 .filterBox {
   margin-top: 1em;
   margin-bottom: 1.5em;
 }
+
 .filter-label {
   padding-right: 5px;
   font-weight: bold;
 };
+
 .panel-container {
   display: flex;
   align-content: flex-start;
@@ -16,7 +23,7 @@
 
 .dashboard-panel {
   text-align: center;
-.panel-body{
+  .panel-body{
   font-weight:bolder;
   font-size: 1.5em;
   }

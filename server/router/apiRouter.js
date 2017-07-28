@@ -11,13 +11,13 @@ const Xray = require('x-ray');
 const xR = Xray();
 // search from Dice's API.
 router.post('/search', (req, res) => {
-  axios.get(`http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=${req.body.data.text}&city=${req.body.data.location}`) // eslint-disable-line
+  axios.get(`http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=${req.body.data.text}&city=${req.body.data.location}`)
     .then((response) => {
       res.send(response.data.resultItemList);
     })
     .catch((err) => {
       console.warn(err);
-      res.send('NOPE');
+      res.send('Failed to get API data');
     });
 });
 

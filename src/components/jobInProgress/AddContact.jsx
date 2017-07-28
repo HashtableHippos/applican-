@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addContactApi } from '../../actions/jobActions';
+import Button from 'muicss/lib/react/button';
 
 class AddContact extends React.Component {
   constructor(props) {
@@ -28,18 +29,23 @@ class AddContact extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={(e) => {
-          e.preventDefault()
-          this.props.addContact(this.state.name, this.state.position, this.state.Email, this.state.FollowUp, this.props.jobId);
-        }}
-        >
-          <input type="text" name="name" placeholder={this.state.name} onChange={this.handleNameChange} />
-          <input type="text" name="position" placeholder={this.state.position} onChange={this.handlePositionChange} />
-          <input type="text" name="Email" placeholder={this.state.Email} onChange={this.handleEmailChange} />
-          <input type="date" name="FollowUp" placeholder={this.state.FollowUp} onChange={this.handleFollowUpChange} />
-          <input type="submit" />
-        </form>
+      <div className="addContactHead">
+        <table>
+          <td width={50}>
+            <a className="mui--text-title">Add Contacts</a>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              this.props.addContact(this.state.name, this.state.position, this.state.Email, this.state.FollowUp, this.props.jobId);
+            }}
+            >
+              <input type="text" name="name" placeholder={this.state.name} onChange={this.handleNameChange} className="aContact" />
+              <input type="text" name="position" placeholder={this.state.position} onChange={this.handlePositionChange} className="aContact" />
+              <input type="text" name="Email" placeholder={this.state.Email} onChange={this.handleEmailChange} className="aContact" />
+              <input type="date" name="FollowUp" placeholder={this.state.FollowUp} onChange={this.handleFollowUpChange} className="aContact" />
+              <Button variant="raised" color="primary" type="submit">Submit</Button>
+            </form>
+          </td>
+        </table>
       </div>
     );
   }
