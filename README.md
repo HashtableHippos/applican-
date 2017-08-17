@@ -4,9 +4,10 @@
 
 ## Team
 
-  - __Product Owner__: Christine Zhao
-  - __Scrum Master__: Anthony Ochmanowicz
-  - __Development Team Members__: Jason Lusthaus, Henry Han
+  [Tianyi Zhao](https://github.com/zhaorq) - Product Owner / Fullstack Developer
+  [Anthony Ochmanowicz](https://github.com/zhaorq) - Scrum Master / Fullstack Developer
+  [Jason Lusthaus](https://github.com/jlusthaus) - Fullstack Developer
+  [Henry Han](https://github.com/HHenry88) - Fullstack Developer
 
 ## Table of Contents
 
