@@ -2,6 +2,8 @@
 
 > A can-do job management system for job applicants. 
 
+[Check out the website](http://applican.herokuapp.com)
+
 ## Team
 
   [Tianyi Zhao](https://github.com/zhaorq) - Product Owner / Fullstack Developer
