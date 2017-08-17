@@ -6,7 +6,7 @@
 
   [Tianyi Zhao](https://github.com/zhaorq) - Product Owner / Fullstack Developer
   
-  [Anthony Ochmanowicz](https://github.com/zhaorq) - Scrum Master / Fullstack Developer
+  [Anthony Ochmanowicz](https://github.com/DocOch) - Scrum Master / Fullstack Developer
   
   [Jason Lusthaus](https://github.com/jlusthaus) - Fullstack Developer
   
